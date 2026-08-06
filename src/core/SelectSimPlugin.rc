@@ -1,0 +1,19 @@
+#include <windows.h>
+#include "resource.h"
+
+STRINGTABLE
+BEGIN
+    IDS_SELECTSIM_CATEGORY     "Select Similar"
+    IDS_SELECTSIM_TABLE_NAME   "Select Similar"
+    IDS_SELECTSIM_ACTION_DESC  "Select similar subobjects (Shift+G)"
+    IDS_SELECTSIM_ACTION_NAME  "Select Similar"
+END
+
+// Default hotkey binding: Shift + G
+IDR_SELECTSIM_ACCEL ACCELERATORS
+{
+    "G", ID_ACTION_SELECT_SIMILAR, VIRTKEY, SHIFT
+}
+
+// Adjuster dialog (kept in a sibling .rc for clarity)
+#include "AdjusterDlg.rc"

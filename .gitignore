@@ -1,0 +1,24 @@
+# Build output
+build/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CMakeUserPresets.json
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.dir/
+
+# IDE
+.vs/
+.idea/
+.vscode/
+*.user
+
+# Misc
+*.log
+Thumbs.db
+Desktop.ini

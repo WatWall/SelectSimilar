@@ -1,0 +1,26 @@
+#include <windows.h>
+#include "adjuster_ids.h"
+
+// Compact live-preview adjuster dialog (~170 x 85 dialog units).
+// IMPORTANT: every CONTROL / COMBOBOX must be on a single line — rc.exe does
+// not always handle line continuations the way C does, and silently-truncated
+// control definitions are the typical cause of "empty combo / dead spinner".
+IDD_ADJUSTER_DIALOG DIALOGEX 0, 0, 170, 85
+STYLE DS_SETFONT | WS_POPUP | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_TOOLWINDOW
+CAPTION "Select Similar"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Compare:",   IDC_COMPARE_LABEL, 6, 7, 38, 8
+    COMBOBOX        IDC_COMPARE_COMBO, 46, 4, 80, 60, CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+
+    LTEXT           "Threshold:", IDC_THRESH_LABEL, 6, 25, 38, 8
+    CONTROL         "", IDC_THRESH_EDIT, "CustEdit", WS_TABSTOP, 46, 22, 50, 10
+    CONTROL         "", IDC_THRESH_SPIN, "SpinnerControl", 0x0, 96, 22, 8, 10
+    LTEXT           "", IDC_THRESH_UNIT, 108, 25, 56, 8
+
+    LTEXT           "0 of 0 selected", IDC_COUNT_LABEL, 6, 44, 158, 8
+
+    DEFPUSHBUTTON   "Apply",  IDOK,     46,  62, 50, 16
+    PUSHBUTTON      "Cancel", IDCANCEL, 100, 62, 50, 16
+END
