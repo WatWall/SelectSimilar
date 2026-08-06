@@ -33,7 +33,11 @@ The script will:
 2. Run `cmake -G "Visual Studio 17 2022" -A x64 -B build -S .` (first time only — reuses `build\` afterwards)
 3. Run `cmake --build build --config Release`
 
-**Output:** `build\output\Release\SelectSimilar.dlu` (typically ~60 KB)
+**Output:** `build\output\Release\SelectSimilar2027.dlu` (typically ~60 KB)
+
+The DLL is named after the Max version it was built for (e.g. `SelectSimilar2025.dlu`
+for the 2025 SDK), since each Max version requires its own build. Point the build at a
+different SDK to get the matching filename.
 
 ### Overriding the SDK path
 
@@ -56,7 +60,7 @@ Either:
 2. Open an elevated cmd and run `scripts\deploy.bat`
 
 The script:
-- Looks for `build\output\Release\SelectSimilar.dlu` (falls back to `build\output\SelectSimilar.dlu` for older layouts)
+- Looks for `build\output\Release\SelectSimilar2027.dlu` (falls back to `build\output\SelectSimilar2027.dlu` for older layouts)
 - Refuses to run without admin (`net session` check)
 - Copies the file to `C:\Program Files\Autodesk\3ds Max 2027\Plugins\`
 
@@ -80,7 +84,7 @@ is user-rebindable and persists across restarts via the user's `.kbx` file.
 ## Uninstall
 
 To remove the plugin:
-1. Delete `C:\Program Files\Autodesk\3ds Max 2027\Plugins\SelectSimilar.dlu`
+1. Delete `C:\Program Files\Autodesk\3ds Max 2027\Plugins\SelectSimilar2027.dlu`
 2. Restart 3ds Max
 
 ## Troubleshooting

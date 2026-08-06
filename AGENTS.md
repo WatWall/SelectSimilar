@@ -16,7 +16,7 @@ scripts\build.ps1
 ```
 
 **Output**
-- `build\output\Release\SelectSimilar.dlu`
+- `build\output\Release\SelectSimilar<MaxYear>.dlu` (e.g. `SelectSimilar2027.dlu`), versioned per the SDK the build targets
 
 ## Deploy to 3ds Max
 

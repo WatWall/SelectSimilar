@@ -21,4 +21,5 @@ cmake -G "Visual Studio 17 2022" -A x64 `
 
 cmake --build $buildDir --config Release
 
-Write-Output "`nBuild complete. Plugin at: $buildDir\output\Release\SelectSimilar.dlu"
+Write-Output "`nBuild complete. Plugin at: $buildDir\output\Release\"
+Write-Output "Look for SelectSimilar<MaxYear>.dlu (e.g. SelectSimilar2027.dlu)"

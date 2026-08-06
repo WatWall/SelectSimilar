@@ -4,8 +4,9 @@ REM Requires admin privileges (writes to C:\Program Files\...\Plugins).
 REM Run from an elevated command prompt, or right-click the script -> Run as administrator.
 
 set "MAX_INSTALL=C:\Program Files\Autodesk\3ds Max 2027"
-set "SRC=%~dp0..\build\output\Release\SelectSimilar.dlu"
-set "SRC_FALLBACK=%~dp0..\build\output\SelectSimilar.dlu"
+set "MAX_VERSION=2027"
+set "SRC=%~dp0..\build\output\Release\SelectSimilar%MAX_VERSION%.dlu"
+set "SRC_FALLBACK=%~dp0..\build\output\SelectSimilar%MAX_VERSION%.dlu"
 set "DST=%MAX_INSTALL%\Plugins\"
 
 set "FINAL_SRC="
@@ -25,7 +26,7 @@ if errorlevel 1 (
     exit /b 1
 )
 
-echo Copying SelectSimilar.dlu to 3ds Max Plugins folder...
+echo Copying SelectSimilar%MAX_VERSION%.dlu to 3ds Max Plugins folder...
 copy /Y "%FINAL_SRC%" "%DST%"
 if errorlevel 1 exit /b 1
 

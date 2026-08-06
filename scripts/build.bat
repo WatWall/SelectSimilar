@@ -22,5 +22,6 @@ cmake --build "%BUILD_DIR%" --config Release
 if errorlevel 1 exit /b 1
 
 echo.
-echo Build complete. Plugin at: %BUILD_DIR%\output\Release\SelectSimilar.dlu
+echo Build complete. Plugin at: %BUILD_DIR%\output\Release\
+echo Look for SelectSimilar^<MaxYear^>.dlu (e.g. SelectSimilar2027.dlu)
 endlocal

@@ -6,10 +6,18 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(PLUGIN_NAME "SelectSimilar")
-set(PLUGIN_OUTPUT_NAME "SelectSimilar")
 
 option(MAXSDK_PATH "Path to 3ds Max SDK maxsdk root" "C:/Program Files/Autodesk/3ds Max 2027 SDK/maxsdk")
 option(MAX_INSTALL_PATH "Path to 3ds Max install" "C:/Program Files/Autodesk/3ds Max 2027")
+
+# Derive the Max version year from the SDK path (e.g. "3ds Max 2027 SDK" -> 2027)
+# so each SDK build produces a version-specific DLL (SelectSimilar2027.dlu).
+string(REGEX MATCH "3ds Max ([0-9]+)" MAX_VERSION_MATCH "${MAXSDK_PATH}")
+if(MAX_VERSION_MATCH)
+    set(PLUGIN_OUTPUT_NAME "SelectSimilar${CMAKE_MATCH_1}")
+else()
+    set(PLUGIN_OUTPUT_NAME "SelectSimilar2027")
+endif()
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 find_package(MAXSDK REQUIRED)
