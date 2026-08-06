@@ -23,8 +23,6 @@ Selects sub-objects (vertices, edges, faces) that match the attributes of your c
 1. Select an object and enter a sub-object mode (Vertex / Edge / Polygon)
 2. Select one or more sub-objects
 3. Press **Shift+G** to select similar
-   - `Ctrl+Shift+G` — add to current selection
-   - `Alt+Shift+G` — subtract from current selection
 
 The hotkey is rebindable in **Customize UI → Keyboard → "Select Similar"**.
 
