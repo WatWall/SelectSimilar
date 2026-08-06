@@ -43,10 +43,4 @@ namespace SelectSimilarEngine
 
     // Reverts visible selection to the snapshot.  No undo entry is created.
     void Revert(const SelectSimilarContext& ctx, const BitArray& originalSel);
-
-    // Combines a freshly-computed similar-set with the snapshot, honouring the
-    // selection mode (Replace / Add / Subtract) chosen via modifier keys.
-    BitArray CombineWithOriginal(const BitArray& originalSel,
-                                 const BitArray& similarSel,
-                                 SelectionMode mode);
 }

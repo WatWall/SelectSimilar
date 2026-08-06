@@ -15,7 +15,6 @@ enum class CriterionKind
 // All params needed to compute a "select similar" result.
 struct SimilarParams
 {
-    SelectionMode selMode    = SelectionMode::Replace;
     CompareMode   compare    = CompareMode::Equal;
     float         threshold  = 0.05f;  // meaning depends on CriterionKind
 };

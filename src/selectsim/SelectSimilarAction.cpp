@@ -64,15 +64,13 @@ BOOL SelectSimilarActionTable::ExecuteAction(int id)
 // ------------------------------------------------------------------------------------------------
 // Direct-apply path for ExactMatch criteria (Material, FlatSmooth, Seam).
 // They don't need the adjuster dialog - we apply immediately with default
-// params and a single undo entry, honouring the current modifier keys for
-// Replace / Add / Subtract.
+// params and a single undo entry.
 // ------------------------------------------------------------------------------------------------
 static void DirectApply(const SelectSimilarContext& ctx,
                         FaceCriterion fc, EdgeCriterion ec, VertexCriterion vc)
 {
     SimilarParams p;
     p.compare = CompareMode::Equal;
-    p.selMode = GetSelectionModeFromModifiers();
 
     BitArray similar;
     switch (ctx.level)
@@ -83,8 +81,6 @@ static void DirectApply(const SelectSimilarContext& ctx,
     default: return;
     }
 
-    BitArray final = SelectSimilarEngine::CombineWithOriginal(ctx.currentSelection, similar, p.selMode);
-
     const wchar_t* name = L"Select Similar";
     switch (ctx.level)
     {
@@ -94,7 +90,7 @@ static void DirectApply(const SelectSimilarContext& ctx,
     default: break;
     }
 
-    SelectSimilarEngine::WriteFinal(ctx, ctx.currentSelection, final, name);
+    SelectSimilarEngine::WriteFinal(ctx, ctx.currentSelection, similar, name);
 }
 
 // ------------------------------------------------------------------------------------------------

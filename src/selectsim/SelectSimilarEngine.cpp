@@ -171,16 +171,3 @@ void SelectSimilarEngine::Revert(const SelectSimilarContext& ctx, const BitArray
 {
     WriteRaw(ctx, originalSel);
 }
-
-BitArray SelectSimilarEngine::CombineWithOriginal(const BitArray& originalSel,
-                                                  const BitArray& similarSel,
-                                                  SelectionMode mode)
-{
-    switch (mode)
-    {
-    case SelectionMode::Add:      return originalSel | similarSel;
-    case SelectionMode::Subtract: return originalSel & ~similarSel;
-    case SelectionMode::Replace:
-    default:                      return similarSel;
-    }
-}

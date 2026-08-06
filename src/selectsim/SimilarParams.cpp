@@ -1,17 +1,4 @@
 #include "SimilarParams.h"
-#include <windows.h>
-
-// ------------------------------------------------------------------------------------------------
-// Modifier keys -> selection mode
-// ------------------------------------------------------------------------------------------------
-SelectionMode GetSelectionModeFromModifiers()
-{
-    const bool ctrl = (GetKeyState(VK_CONTROL) & 0x8000) != 0;
-    const bool alt  = (GetKeyState(VK_MENU)    & 0x8000) != 0;
-    if (ctrl) return SelectionMode::Add;
-    if (alt)  return SelectionMode::Subtract;
-    return SelectionMode::Replace;
-}
 
 // ------------------------------------------------------------------------------------------------
 // CriterionKind classification

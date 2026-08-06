@@ -43,7 +43,6 @@ void SelectSimilarAdjuster::Open(SelectSimilarContext ctx,
     default: return;
     }
     sInstance->mParams.compare = CompareMode::Equal;
-    sInstance->mParams.selMode = GetSelectionModeFromModifiers();
 
     sInstance->DoOpen();
 }
@@ -149,7 +148,6 @@ void SelectSimilarAdjuster::DoClose(bool apply)
         case SelLevel::Vertex: SelectSimilarComputations::ComputeVertex(mCtx, mVertCrit, mParams, similar); break;
         default: break;
         }
-        BitArray final = SelectSimilarEngine::CombineWithOriginal(mOriginalSel, similar, mParams.selMode);
 
         const wchar_t* name = L"Select Similar";
         switch (mLevel)
@@ -159,7 +157,7 @@ void SelectSimilarAdjuster::DoClose(bool apply)
         case SelLevel::Vertex: name = GetDisplayName(mVertCrit);   break;
         default: break;
         }
-        SelectSimilarEngine::WriteFinal(mCtx, mOriginalSel, final, name);
+        SelectSimilarEngine::WriteFinal(mCtx, mOriginalSel, similar, name);
     }
     else
     {
@@ -387,7 +385,7 @@ void SelectSimilarAdjuster::RecomputeAndPreview()
     default: break;
     }
 
-    BitArray live = SelectSimilarEngine::CombineWithOriginal(mOriginalSel, similar, mParams.selMode);
+    BitArray live = similar;
 
     // Write live (no undo).  This updates the viewport as the user drags.
     SelectSimilarEngine::WriteLive(mCtx, live);

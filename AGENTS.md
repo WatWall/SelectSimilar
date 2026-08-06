@@ -60,12 +60,6 @@ cmake --build build --config Release --target deploy
 5. Compute matching BitArray (see criteria functions)
 6. `ApplySelection()` writes back through `EpModSetSelection` (modifier) or `EpfnSetSelection` (base object), wrapped in `theHold.Begin/Accept` for undoability, then refreshes viewports.
 
-## Selection mode modifier keys
-
-- `Shift+G` alone -> **Replace** selection
-- `Ctrl+Shift+G` -> **Add** to selection
-- `Alt+Shift+G` -> **Subtract** from selection
-
 ## Class ID scheme
 
 "SSI" = ASCII 'S','S','I' = `0x535349`
@@ -139,8 +133,6 @@ For each of the 16 criteria:
 5. For direct-apply criteria: selection updates immediately, single Ctrl+Z reverts
 6. For adjuster criteria: dialog appears at cursor; spin Threshold, change Compare,
    verify viewport updates live; Apply commits, Cancel reverts
-7. Ctrl+Shift+G adds, Alt+Shift+G subtracts (with dialog open, the SelectionMode
-   is captured at dialog-open time)
 
 ## Git Workflow
 

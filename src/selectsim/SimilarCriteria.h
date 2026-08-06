@@ -10,14 +10,6 @@ enum class SelLevel
     Face,      // also covers Element
 };
 
-// How the new selection combines with the current one.
-enum class SelectionMode
-{
-    Replace,
-    Add,
-    Subtract,
-};
-
 // Compare direction, mirrors Blender's "Compare" dropdown.
 enum class CompareMode
 {
@@ -56,6 +48,3 @@ enum class VertexCriterion
     AdjacentFaces,   // adjuster, compare-only (discrete)
     ConnectingEdges, // adjuster, compare-only (discrete)
 };
-
-// Inspect current modifier keys to pick a selection mode.
-SelectionMode GetSelectionModeFromModifiers();
